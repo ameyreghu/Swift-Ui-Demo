@@ -29,10 +29,12 @@ struct ContentView: View {
                     }
                 }else{
                     List(viewModel.posts){post in
-                        VStack(alignment: .leading,spacing: 4){
-                            Text(post.title.capitalized).font(.headline)
-                            Text(post.body).font(.subheadline).foregroundColor(.secondary)
-                        }.padding(.vertical,4)
+                        NavigationLink(destination: PostDetailView(post: post)){
+                            VStack(alignment: .leading,spacing: 4){
+                                Text(post.title.capitalized).font(.headline)
+                                Text(post.body).font(.subheadline).foregroundColor(.secondary)
+                            }.padding(.vertical,4)
+                        }
                     }
                 }
             }.navigationTitle("Posts")
